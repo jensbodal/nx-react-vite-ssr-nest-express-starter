@@ -2,7 +2,9 @@
   "name": "nx-react-vite-ssr-nest-express-starter",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve-with-api web"
+  },
   "private": true,
   "devDependencies": {
     "@nestjs/schematics": "^9.0.0",
@@ -56,6 +58,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@types/express": "^4.17.17",
     "axios": "^1.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

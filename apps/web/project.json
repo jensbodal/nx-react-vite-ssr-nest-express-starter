@@ -25,6 +25,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "web:build",
+        "open": true,
         "proxyConfig": "apps/web/proxy.conf.json"
       },
       "configurations": {
@@ -36,6 +37,26 @@
           "buildTarget": "web:build:production",
           "hmr": false
         }
+      }
+    },
+    "serve-with-api": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": true,
+        "commands": [
+          "nx serve api",
+          "nx serve-wait-for-api web"
+        ]
+      }
+    },
+    "serve-wait-for-api": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "until curl -s localhost:3333/api/health-check | grep OK; do sleep 0.5; done",
+          "nx serve web"
+        ]
       }
     },
     "preview": {
