@@ -44,7 +44,7 @@
       "options": {
         "parallel": true,
         "commands": [
-          "nx serve api",
+          "nx serve api --open=false",
           "nx serve-wait-for-api web"
         ]
       }
