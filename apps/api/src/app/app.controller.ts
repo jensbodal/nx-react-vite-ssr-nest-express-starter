@@ -1,5 +1,6 @@
 import { Controller, Get, Res } from '@nestjs/common';
-import {Response} from 'express';
+import type { Response } from 'express';
+import got from 'got';
 
 import { AppService } from './app.service';
 
@@ -10,6 +11,18 @@ export class AppController {
   @Get()
   getData() {
     return this.appService.getData();
+  }
+
+  @Get('got')
+  async getGot(@Res() res: Response) {
+    const { data } = await got
+      .post('https://httpbin.org/anything', {
+        json: {
+          hello: 'world',
+        },
+      })
+      .json<{ data: unknown }>();
+    res.status(200).send(data);
   }
 
   @Get('/health-check')

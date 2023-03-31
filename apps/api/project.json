@@ -5,36 +5,36 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "defaultConfiguration": "development",
       "options": {
-        "target": "node",
-        "compiler": "tsc",
         "outputPath": "dist/apps/api",
-        "main": "apps/api/src/main.ts",
-        "tsConfig": "apps/api/tsconfig.app.json",
-        "assets": ["apps/api/src/assets"],
-        "isolatedConfig": true,
-        "webpackConfig": "apps/api/webpack.config.js"
+        "ssr": true
       },
       "configurations": {
-        "development": {},
-        "production": {}
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "serve": {
-      "executor": "@nrwl/js:node",
+      "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "api:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "api:build:development"
+          "buildTarget": "api:build:development",
+          "hmr": true
         },
         "production": {
-          "buildTarget": "api:build:production"
+          "buildTarget": "api:build:production",
+          "hmr": false
         }
       }
     },
