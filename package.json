@@ -4,7 +4,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nx serve-with-api web"
+    "build": "nx run-many -t build",
+    "start": "nx serve-with-api web",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test"
   },
   "private": true,
   "dependencies": {
