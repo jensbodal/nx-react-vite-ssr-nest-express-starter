@@ -3,6 +3,19 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
+      "files": ["package.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/dependency-checks": ["error", {
+          "ignoredDependencies": [
+            "rollup-plugin-swc3",
+            "vavite",
+            "vite"
+          ]
+        }]
+      }
+    },
+    {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {}
     },

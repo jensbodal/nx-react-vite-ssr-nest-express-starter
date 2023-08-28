@@ -42,7 +42,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/api/**/*.ts"]
+        "lintFilePatterns": ["apps/api/**/*.ts", "apps/api/package.json"]
       }
     },
     "test": {
