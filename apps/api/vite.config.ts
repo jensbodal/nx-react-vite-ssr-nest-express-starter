@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import vavite from 'vavite';
+import { join } from 'node:path';
 import { swc } from 'rollup-plugin-swc3';
 
 export default defineConfig({
@@ -20,6 +21,10 @@ export default defineConfig({
     {
       ...swc({
         jsc: {
+          baseUrl: join(__dirname, './src'),
+          paths: {
+            '*': ['*'],
+          },
           target: 'es2021',
           transform: {
             decoratorMetadata: true,
