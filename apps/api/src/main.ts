@@ -5,6 +5,11 @@ import { IncomingMessage, ServerResponse } from "node:http";
 
 import { AppModule } from './app/app.module';
 
+let resolveHandler: (value: Express) => void;
+let expressHandler: Express | Promise<Express> = new Promise((resolve) => {
+	resolveHandler = resolve;
+});
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
@@ -25,11 +30,6 @@ async function bootstrap() {
 }
 
 bootstrap();
-
-let resolveHandler: (value: Express) => void;
-let expressHandler: Express | Promise<Express> = new Promise((resolve) => {
-	resolveHandler = resolve;
-});
 
 export default async function handler(
 	request: IncomingMessage,
