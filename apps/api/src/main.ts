@@ -16,7 +16,7 @@ async function bootstrap() {
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3333;
 
-  if (import.meta.env.PROD) {
+  if (import.meta.env?.PROD) {
     // For production, start your server
     // as you would normally do.
     await app.listen(port);

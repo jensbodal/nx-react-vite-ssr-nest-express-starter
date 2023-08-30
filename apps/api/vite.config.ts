@@ -3,9 +3,11 @@ import vavite from 'vavite';
 import { join } from 'node:path';
 import { swc } from 'rollup-plugin-swc3';
 
+const IS_TEST = process.env['NODE_ENV'] === 'test';
+
 export default defineConfig({
   server: {
-    open: '/api',
+    open: IS_TEST ? false : '/api',
     host: 'localhost',
     port: 3333,
   },
@@ -42,4 +44,12 @@ export default defineConfig({
       reloadOn: 'static-deps-change',
     }),
   ],
+  test: {
+    globals: true,
+    cache: {
+      dir: '../../node_modules/.cache/vitest',
+    },
+    environment: 'node',
+    include: ['src/**/*.test.ts'],
+  },
 });
