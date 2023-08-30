@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/web"
@@ -76,7 +78,9 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/web"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/web"
+      ],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/web"
@@ -84,9 +88,13 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/web/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     }
   },
