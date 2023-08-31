@@ -6,6 +6,8 @@ import { swc } from 'rollup-plugin-swc3';
 const IS_TEST = process.env['NODE_ENV'] === 'test';
 
 export default defineConfig({
+  cacheDir: '../../node_modules/.cache/vite/api',
+
   server: {
     open: IS_TEST ? false : '/api',
     host: 'localhost',

@@ -1,20 +1,32 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": ".",
-    "sourceMap": true,
+
+    "module": "ESNext",
+    "target": "ESNext",
+    // need to extend from https://github.com/tsconfig/bases and move dom to only where needed
+    "lib": ["es2017", "dom"],
+
+    /////////////////////////////////////////
+    // testing
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
+    /////////////////////////////////////////
+
     "declaration": false,
-    "moduleResolution": "Bundler",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {}
+    "skipLibCheck": true,
+    "strict": true,
+    "sourceMap": true,
+
+    "paths": {},
   },
   "exclude": ["node_modules", "tmp"]
 }

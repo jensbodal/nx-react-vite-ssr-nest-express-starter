@@ -2,10 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-		"target": "es2020",
-		"module": "ESNext",
     "types": ["node", "vite/client"],
-    "emitDecoratorMetadata": true,
   },
   "exclude": ["src/**/*.test.ts"],
   "include": ["src/**/*.ts"]

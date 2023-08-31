@@ -8,7 +8,8 @@
     "start": "nx serve-with-api web",
     "fix": "npm run lint --fix",
     "lint": "nx run-many -t lint",
-    "test": "nx run-many -t test"
+    "test": "nx run-many -t test",
+    "release": "nx run-many --skip-nx-cache --targets=lint,test,build"
   },
   "private": true,
   "dependencies": {
