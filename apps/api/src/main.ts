@@ -12,6 +12,7 @@ let expressHandler: Express | Promise<Express> = new Promise((resolve) => {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // TODO is globalPrefix what we want?
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3333;

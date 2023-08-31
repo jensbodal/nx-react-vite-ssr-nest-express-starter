@@ -7,7 +7,7 @@
     "module": "ESNext",
     "target": "ESNext",
     // need to extend from https://github.com/tsconfig/bases and move dom to only where needed
-    "lib": ["es2017", "dom"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
 
     /////////////////////////////////////////
     // testing

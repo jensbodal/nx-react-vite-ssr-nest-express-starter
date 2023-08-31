@@ -4,6 +4,11 @@
     "@nestjs/common": "^10.2.1",
     "@nestjs/core": "^10.2.1",
     "express": "4.18.2",
-    "got": "^13.0.0"
+    "got": "^13.0.0",
+    "vite-plugin-ssr": "^0.4.140",
+    "@nestjs/serve-static": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.4"
   }
 }

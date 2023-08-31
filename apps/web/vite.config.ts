@@ -9,6 +9,17 @@ export default defineConfig({
   server: {
     port: 4200,
     host: 'localhost',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3333',
+        secure: false,
+      },
+      '/ssr': {
+        target: 'http://localhost:3333/ssr',
+        rewrite: (path) => path.replace(/^\/ssr/, ''),
+        secure: false,
+      },
+    },
   },
 
   preview: {
@@ -30,6 +41,6 @@ export default defineConfig({
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
-    setupFiles: ['./test/setup-msw.ts']
+    setupFiles: ['./test/setup-msw.ts'],
   },
 });

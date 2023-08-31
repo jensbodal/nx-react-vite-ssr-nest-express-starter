@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "nx run-many -t build",
+    "dev": "vite optimize --force app/api && vavite serve apps/api",
     "start": "nx serve-with-api web",
     "fix": "npm run lint --fix",
     "lint": "nx run-many -t lint",
@@ -16,6 +17,7 @@
     "@nestjs/common": "^10.2.1",
     "@nestjs/core": "^10.2.1",
     "@nestjs/platform-express": "^10.2.1",
+    "@nestjs/serve-static": "^4.0.0",
     "axios": "^1.5.0",
     "got": "^13.0.0",
     "react": "^18.2.0",
@@ -23,7 +25,8 @@
     "react-router-dom": "^6.15.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "vite-plugin-ssr": "^0.4.140"
   },
   "devDependencies": {
     "@nestjs/schematics": "^10.0.2",
