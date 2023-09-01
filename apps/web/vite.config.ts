@@ -19,6 +19,11 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/ssr/, ''),
         secure: false,
       },
+      '/src/renderer': {
+        target: 'http://localhost:3333/src/renderer',
+        rewrite: (path) => path.replace(/^\/src\/renderer/, ''),
+        secure: false,
+      },
     },
   },
 

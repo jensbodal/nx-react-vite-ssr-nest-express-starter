@@ -1,5 +1,7 @@
 import { Route, Routes, Link } from 'react-router-dom';
 import { HelloWorld } from './hello-world';
+import { ViteLogo } from './vite-logo';
+import { DogImage } from './dog-image';
 
 export function App() {
   return (
@@ -13,12 +15,17 @@ export function App() {
       <hr />
       <br />
       <div role="navigation">
+        <DogImage />
+        <ViteLogo />
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/page-2">Page 2</Link>
+          </li>
+          <li>
+            <a href='/ssr'>SSR</a>
           </li>
         </ul>
       </div>

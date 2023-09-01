@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import { Logger, RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import type { Express } from "express";
 import { IncomingMessage, ServerResponse } from "node:http";
@@ -12,9 +12,15 @@ let expressHandler: Express | Promise<Express> = new Promise((resolve) => {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  // TODO is globalPrefix what we want?
+
+  // https://docs.nestjs.com/faq/global-prefix
   const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
+
+  // this exclude isn't necessary it seems like
+  app.setGlobalPrefix(globalPrefix, {
+    exclude: ['cats', { path: 'ssr', method: RequestMethod.ALL }],
+  });
+
   const port = process.env.PORT || 3333;
 
   if (import.meta.env?.PROD) {

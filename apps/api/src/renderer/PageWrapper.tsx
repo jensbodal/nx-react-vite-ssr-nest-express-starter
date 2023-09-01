@@ -24,6 +24,9 @@ export const PageWrapper = ({
             <Link className="navitem" href="/about">
               About
             </Link>
+            <Link className="navitem" href="/spa">
+              SPA
+            </Link>
           </Sidebar>
           <Content>{children}</Content>
         </Layout>
@@ -86,7 +89,7 @@ function Logo() {
         marginBottom: 10,
       }}
     >
-      <a href="/">
+      <a href="/ssr">
         <img src={logo} height={64} width={64} alt="logo" />
       </a>
     </div>
